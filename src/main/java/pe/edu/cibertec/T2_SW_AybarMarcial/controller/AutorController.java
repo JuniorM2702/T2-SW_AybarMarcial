@@ -41,7 +41,7 @@ public class AutorController {
         if (!autorService.obtenerAutor(id).isPresent()) {
             return ResponseEntity.notFound().build();
         }
-        autor.setIdAutor(id);
+        autor.setIdautor(id);
         return ResponseEntity.ok(autorService.guardarAutor(autor));
     }
 }

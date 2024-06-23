@@ -41,7 +41,7 @@ public class PublicacionController {
         if (!publicacionService.obtenerPublicacionxId(id).isPresent()) {
             return ResponseEntity.notFound().build();
         }
-        publicacion.setIdPublicacion(id);
+        publicacion.setIdpublicacion(id);
         return ResponseEntity.ok(publicacionService.guardarPublicacion(publicacion));
     }
 }

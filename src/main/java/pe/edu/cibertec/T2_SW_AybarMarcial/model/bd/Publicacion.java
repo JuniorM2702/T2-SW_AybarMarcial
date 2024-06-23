@@ -1,5 +1,6 @@
 package pe.edu.cibertec.T2_SW_AybarMarcial.model.bd;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -8,24 +9,24 @@ import java.util.Date;
 @Getter
 @Setter
 @Entity
-@Table(name = "Publicacion")
+@Table(name = "publicacion")
 public class Publicacion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idPublicacion;
+    private int idpublicacion;
 
-    @Column(name = "Titulo")
+    @Column(name = "titulo")
     private String titulo;
 
-    @Column(name = "Resumen")
+    @Column(name = "resumen")
     private String resumen;
 
-    @Column(name = "FechPublicacion")
-    @Temporal(TemporalType.DATE)
+    @Column(name = "fechpublicacion")
     private Date fechPublicacion;
 
     @ManyToOne
-    @JoinColumn(name = "IdAutor")
+    @JsonIgnoreProperties("publicaciones")
+    @JoinColumn(name = "idautor")
     private Autor autor;
 }
