@@ -1,0 +1,36 @@
+
+CREATE TABLE Autor
+(
+    IdAutor INT NOT NULL AUTO_INCREMENT,
+    NomAutor VARCHAR(50) NOT NULL,
+    ApeAutor VARCHAR(50) NOT NULL,
+    FechNacAutor DATE NOT NULL,
+    PRIMARY KEY (IdAutor)
+);
+
+CREATE TABLE Publicacion
+(
+    IdPublicacion INT NOT NULL AUTO_INCREMENT,
+    Titulo VARCHAR(250) NOT NULL,
+    Resumen VARCHAR(250) NOT NULL,
+    FechPublicacion DATE NOT NULL,
+    IdAutor INT NOT NULL,
+    PRIMARY KEY (IdPublicacion),
+    FOREIGN KEY (IdAutor) REFERENCES Autor(IdAutor)
+);
+
+INSERT INTO Autor (NomAutor, ApeAutor, FechNacAutor)
+VALUES
+('Gabriel', 'García Márquez', '1927-03-06'),
+('Isabel', 'Allende', '1942-08-02'),
+('Jorge', 'Luis Borges', '1899-08-24'),
+('Mario', 'Vargas Llosa', '1936-03-28'),
+('Pablo', 'Neruda', '1904-07-12');
+
+INSERT INTO Publicacion (Titulo, Resumen, FechPublicacion, IdAutor)
+VALUES
+('Cien años de soledad', 'Una novela épica de la familia Buendía en el pueblo de Macondo', '1967-05-30', 1),
+('La casa de los espíritus', 'Una saga familiar que abarca varias generaciones', '1982-09-01', 2),
+('El Aleph', 'Una colección de cuentos que explora la naturaleza del infinito', '1949-01-01', 3),
+('La ciudad y los perros', 'Una crítica a la vida militar y la sociedad peruana', '1963-01-01', 4),
+('Veinte poemas de amor y una canción desesperada', 'Una colección de poemas líricos', '1924-01-01', 5);
